@@ -2,9 +2,9 @@
   "name": "mentr-cli",
   "version": "1.0.0",
   "description": "Mentoring student tracker application with CLI.",
-  "main": "src/index.js",
+  "main": "src/cli.js",
   "scripts": {
-    "test": "mocha test/ --recursive  --watch"
+    "test": "mocha ./test --recursive  --watch"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   "author": "John Gilliland",
   "license": "MIT",
   "bin": {
-    "mentr": "./mentr"
+    "mentr": "./bin/mentr"
   },
   "bugs": {
     "url": "https://github.com/elusive/mentr-cli/issues"
