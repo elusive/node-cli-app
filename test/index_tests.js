@@ -3,18 +3,17 @@ const runCommand = require('./cli_helper');
 const app = require('../src/cli');
 
 
-describe('mentr ', () => {
+describe('mentr-cli ', () => {
     it('should output some helpful text when no args.', () => {
         // arrange
         const expected = 'Mentoring';
 
         // act
         var result = runCommand('mentr');
-        console.log(result.stdout);
-        result = result.stdout;
+        console.log(result);
 
         // assert
-        should.exist(result);
-        should(result).not.be.empty();
+        result.should.exist();
+        result.should.startWith(expected);
     });
 });
