@@ -1,5 +1,4 @@
 const should = require('should');
-const runCommand = require('../cli_helper');
 const commandBase = require('../../src/commands/command.base');
 
 describe('command.base', () => {
