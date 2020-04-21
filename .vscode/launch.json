@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/src/index.js"
+            "program": "${workspaceFolder}/bin/cli"
         },
         {
             "type": "node",
@@ -22,7 +22,8 @@
                 "${workspaceFolder}/test"
             ],
             "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+            "env": { "NODE_ENV": "development" }
         },
         {
             "type": "node",

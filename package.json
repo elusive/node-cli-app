@@ -1,38 +1,43 @@
 {
   "name": "mentr-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mentoring student tracker application with CLI.",
   "main": "src/cli.js",
   "scripts": {
-    "test": "mocha ./test --recursive  --watch"
+    "test": "mocha ./test --recursive --watch --verbose"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/elusive/mentr-cli.git"
   },
   "keywords": [
-    "mentoring",
-    "mentor",
-    "student",
-    "command",
-    "cli"
+    "prototype",
+    "pollution",
+    "xss",
+    "owasp",
+    "proto"
   ],
   "author": "John Gilliland",
   "license": "MIT",
   "bin": {
-    "mentr": "./bin/mentr"
+    "cli": "bin/cli.js"
   },
   "bugs": {
-    "url": "https://github.com/elusive/mentr-cli/issues"
+    "url": "https://github.com/elusive/prototype-pollution/issues"
   },
-  "homepage": "https://github.com/elusive/mentr-cli#readme",
+  "homepage": "https://github.com/elusive/prototype-pollution#readme",
   "dependencies": {
+    "chalk": "^4.0.0",
+    "clear": "^0.1.0",
+    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "figlet": "^1.3.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
+    "bunyan": "^1.8.12",
     "execa": "^1.0.0",
     "mocha": "^6.1.4",
     "should": "^13.2.3"
