@@ -2,7 +2,7 @@
  * endpoint used to export all commands in an array
  */
 
-let commands = [];
+const commands = [];
 
 commands.push(require('./version'));
 commands.push(require('./hello'));

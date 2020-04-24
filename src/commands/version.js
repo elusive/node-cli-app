@@ -6,13 +6,13 @@ const { version } = require('../../package.json');
  * version of the application.
  */
 class Version extends CommandBase {
-    constructor(...args) {
-        super('version',
-            ['v', 'version'],
-            (args) => console.log(`v${version}`));
-        this.description = 'Command that outputs the application version.';
-        this.example = 'cli -v, cli version';
-    }
+  constructor(...args) {
+    super('version',
+      ['v', 'version'],
+      (args) => console.log(`v${version}`));
+    this.description = 'Command that outputs the application version.';
+    this.example = 'cli -v, cli version';
+  }
 }
 
 module.exports = new Version();

@@ -11,6 +11,8 @@ const chalk = require('chalk');
  */
 class Help extends CommandBase {
 
+    _commands = require('../commands');
+
     constructor(...args) {
         // Call the base class ctor with the values
         // we need to make this particular command.
@@ -31,6 +33,14 @@ class Help extends CommandBase {
         this._example = "cli help, cli -h";
     }
 
+    list() {
+        return this._commands.map(cmd => cmd.name);
+    }
+
+    usage() {
+        console.log(chalk.blue(`Usage: cli <command\n`));
+        console.log(chalk.blue(`where <command is one of: \n \t ${list.join(', ')}\n`));
+    }
  }
 
 

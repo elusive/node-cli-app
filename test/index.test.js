@@ -5,15 +5,15 @@ const app = require('../src').default;
 
 
 describe('index ', () => {
-    it('should output some helpful text when no args.', () => {
-        // arrange
-        const expected = 'Application Help';
+  it('should output some helpful text when no args.', () => {
+    // arrange
+    const expected = 'Application Help';
 
-        // act
-        var result = runCommand('cli');
-        console.log(result.stdout);
+    // act
+    const result = runCommand('cli');
+    console.log(result.stdout);
 
-        // assert
-        should.exist(result.stdout);
-    });
+    // assert
+    should.exist(result.stdout);
+  });
 });

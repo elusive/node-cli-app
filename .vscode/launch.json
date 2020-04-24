@@ -23,7 +23,9 @@
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-            "env": { "NODE_ENV": "development" }
+            "env": {
+                "NODE_ENV": "development"
+            }
         },
         {
             "type": "node",
@@ -38,6 +40,13 @@
             ],
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Docker Node.js Launch",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "platform": "node"
         }
     ]
 }

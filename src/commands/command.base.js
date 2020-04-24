@@ -1,19 +1,11 @@
-'use strict';
 
 const chalk = require('chalk');
+const loggerFactory = require('../shared/logger');
 
 /**
  * Base command class for defining shared behavior for commands.
  */
 class CommandBase {
-
-    _loggerFactory = require('../shared/logger');
-    _name = 'command';
-    _description = 'command description';   // default value
-    _example = 'command param1 param1';     // default value
-    _forms = [];                            // forms which are excepted for the command
-    _canExecute = () => true;               // default can execute function
-
 
     /**
      * Create a new instance of the CommandBase class.
@@ -24,11 +16,12 @@ class CommandBase {
     constructor(commandName, commandForms, commandDelegate, commandCanExecute) {
         this._name = commandName;
         this._delegate = commandDelegate;
+        this._example = '';
         this._forms = commandForms;
         if (commandCanExecute) {
             this._canExecute = commandCanExecute;
         }
-        this._logger = this._loggerFactory.getLogger();
+        this._logger = loggerFactory.getLogger();
     }
 
 
