@@ -1,4 +1,3 @@
-
 const chalk = require('chalk');
 const loggerFactory = require('../shared/logger');
 
@@ -6,7 +5,6 @@ const loggerFactory = require('../shared/logger');
  * Base command class for defining shared behavior for commands.
  */
 class CommandBase {
-
     /**
      * Create a new instance of the CommandBase class.
      * @param {string} commandName
@@ -14,63 +12,59 @@ class CommandBase {
      * @param {function} commandCanExecute
      */
     constructor(commandName, commandForms, commandDelegate, commandCanExecute) {
-        this._name = commandName;
-        this._delegate = commandDelegate;
-        this._example = '';
-        this._forms = commandForms;
+        this.name = commandName;
+        this.delegate = commandDelegate;
+        this.example = '';
+        this.forms = commandForms;
         if (commandCanExecute) {
-            this._canExecute = commandCanExecute;
+            this.canExecute = commandCanExecute;
         }
-        this._logger = loggerFactory.getLogger();
+        this.logger = loggerFactory.getLogger();
     }
 
+    get command() { return this.delegate; }
 
-    get command() { return this._delegate; }
-    set command(value) { this._delegate = value; }
+    set command(value) { this.delegate = value; }
 
+    get description() { return this.description; }
 
-    get description() { return this._description; }
-    set description(value) { this._description = value; }
+    set description(value) { this.description = value; }
 
+    get example() { return this.example; }
 
-    get example() { return this._example; }
-    set example(value) { this._example = value; }
+    set example(value) { this.example = value; }
 
+    get forms() { return this.forms; }
 
-    get forms() { return this._forms; }
-    set forms(value) { this._forms = value; }
-
+    set forms(value) { this.forms = value; }
 
     /**
      * This method invokes the commands execute delegate.
      */
     invoke(args) {
         if (this.canExecute()) {
-            this._logger.info(`Invoking the {this._name} command.`);
+            this.logger.info(`Invoking the {this.name} command.`);
             this.command.call(this, args);
         } else {
-            this._logger.log.warn(
-                `The {this._name} command was invoked but can execute returned false.`);
+            this.logger.log.warn(
+                `The {this.name} command was invoked but can execute returned false.`);
         }
     }
-
 
     /**
      * This method is used to determine if the command can be invoked.
      */
     canExecute() {
-        return this._canExecute();
+        return this.canExecute();
     }
-
 
     /**
      * This method outputs the help text for this command.
      */
     help() {
-        let helpText = `${this._name.padEnd(20)}${this._forms.join(', ').padEnd(25)}${this._description.padEnd(45)}`;
+        let helpText = `${this.name.padEnd(20)}${this.forms.join(', ').padEnd(25)}${this.description.padEnd(45)}`;
         console.log(chalk.blue(helpText));
     }
 }
-
 
 module.exports = CommandBase;

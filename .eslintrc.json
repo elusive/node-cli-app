@@ -18,5 +18,7 @@
         }
     },
     "rules": {
+        "indent": ["warn", 4],
+        "eol-last": ["error", "never"]
     }
 }
