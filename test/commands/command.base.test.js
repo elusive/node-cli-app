@@ -18,14 +18,14 @@ describe('Command.base', () => {
 describe('Command.base.help()', () => {
   it('should output a usage information.', () => {
     // arrange
-    const expected = 'help';
+    const expected = 'Help';
 
     // act
-    const help = require('../commands/help');
+    const help = require('../../src/commands/help');
     const actual = help.help();
 
     // assert
-    actual.should.exist();
+    actual.should.not.be.empty();
     actual.should.startWith(expected);
   });
 });

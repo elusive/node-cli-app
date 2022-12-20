@@ -10,6 +10,7 @@ class CommandBase {
     /**
      * Create a new instance of the CommandBase class.
      * @param {string} commandName
+     * @param {object} commandForms
      * @param {function} commandDelegate
      * @param {function} commandCanExecute
      */
@@ -20,6 +21,8 @@ class CommandBase {
         this._forms = commandForms;
         if (commandCanExecute) {
             this._canExecute = commandCanExecute;
+        } else {
+            this._canExecute = () => true;
         }
         this._logger = loggerFactory.getLogger();
     }
@@ -69,6 +72,7 @@ class CommandBase {
     help() {
         let helpText = `${this._name.padEnd(20)}${this._forms.join(', ').padEnd(25)}${this._description.padEnd(45)}`;
         console.log(chalk.blue(helpText));
+        return helpText;
     }
 }
 

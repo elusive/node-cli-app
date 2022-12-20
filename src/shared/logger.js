@@ -12,16 +12,25 @@ let logFile = path.join(logPath, 'cli.log');
 console.warn('- Log file is "%s".', logFile);
 if (!fs.existsSync(logFile)) {
         console.warn('- Touch log file.');
-        fs.writeFileSync(logFile, 'touch\n');
+        try {
+            fs.writeFileSync(logFile, 'touch\n');
+        } catch(e) {
+            console.error(e);
+        }
 }
 
 
 //    make log file readonly
+/*
 if (fs.statSync(logFile).mode & S_IWUSR) {
         console.warn('- Make log file read-only.');
-        fs.chmodSync(logFile, 0444);
+        try {
+            fs.chmodSync(logFile, 0444);
+        } catch (e) {
+            console.error(e);
+        } 
 }
-
+*/
 
 // create logger instance to return
 const logger = bunyan.createLogger({
